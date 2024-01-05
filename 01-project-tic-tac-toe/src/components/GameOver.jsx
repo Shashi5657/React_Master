@@ -1,4 +1,4 @@
-// this component is used to display the gameOver screen 
+// this component is used to display the gameOver screen
 //it takes winner & onRestart as props
 export default function GameOver({ winner, onRestart }) {
   return (
