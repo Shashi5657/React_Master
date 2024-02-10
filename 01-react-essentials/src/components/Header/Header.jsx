@@ -1,5 +1,6 @@
 // we have to use images by importing like this, so it would be efficient , if we use path , it would get lost while deployment
-import reactImg from "../assets/react-core-concepts.png";
+import reactImg from "../../assets/react-core-concepts.png";
+import './Header.css'
 
 
 //***** Creating the dynamic content(changing content ) *****
