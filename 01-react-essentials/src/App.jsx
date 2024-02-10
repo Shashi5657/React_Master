@@ -34,11 +34,13 @@ function App() {
         <section id="examples">
           <h2>Examples</h2>
           <menu>
+
             <TabButtons onSelect={()=> handleSelect('components')}>Components</TabButtons>
             <TabButtons onSelect={()=> handleSelect('jsx')}>JSX</TabButtons>
             <TabButtons onSelect={()=> handleSelect('props')}>Props</TabButtons>
             <TabButtons onSelect={()=> handleSelect('state')}>State</TabButtons>
           </menu>
+          
           <div id="tab-content">
             <h3>{EXAMPLES[selectedTopic].title}</h3>
             <p>{EXAMPLES[selectedTopic].description}</p>
