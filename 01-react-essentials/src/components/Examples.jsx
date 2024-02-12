@@ -1,6 +1,12 @@
-import {useState} from 'react'
-import TabButtons from './TabButtons';
-import { EXAMPLES } from '../data';
+// fragments can also be  used <> </> , <fragment> </fragment>
+
+//splitted the components by feature & state
+
+import { useState } from "react";
+import TabButtons from "./TabButtons";
+import { EXAMPLES } from "../data";
+import Section from "./Section";
+import Tabs from "./Tabs";
 
 export default function Examples() {
   // ****** using state hook , it is used for changing content *******
@@ -29,9 +35,8 @@ export default function Examples() {
   }
 
   return (
-    <section id="examples">
+    <Section title="Examples" id="examples">
       <h2>Examples</h2>
-      <menu>
         {/* //onSelect is passing as props to the TabButtons component */}
         {/* //for passing the appropriate value to the onClick event,
              here we r using it as an arrow function & passing an argument to it , 
@@ -44,34 +49,38 @@ export default function Examples() {
 
         {/* here I am passing value to the isSelected props based on the condition,
              that if the selectedTopic is components it is passed such like that */}
-
-        <TabButtons
-          isSelected={selectedTopic === "components"}
-          onSelect={() => handleSelect("components")}
+        <Tabs
+          buttons={
+            <>
+              <TabButtons
+                isSelected={selectedTopic === "components"}
+                onClick={() => handleSelect("components")}
+              >
+                Components
+              </TabButtons>
+              <TabButtons
+                isSelected={selectedTopic === "jsx"}
+                onClick={() => handleSelect("jsx")}
+              >
+                JSX
+              </TabButtons>
+              <TabButtons
+                isSelected={selectedTopic === "props"}
+                onClick={() => handleSelect("props")}
+              >
+                Props
+              </TabButtons>
+              <TabButtons
+                isSelected={selectedTopic === "state"}
+                onClick={() => handleSelect("state")}
+              >
+                State
+              </TabButtons>
+            </>
+          }
         >
-          Components
-        </TabButtons>
-        <TabButtons
-          isSelected={selectedTopic === "jsx"}
-          onSelect={() => handleSelect("jsx")}
-        >
-          JSX
-        </TabButtons>
-        <TabButtons
-          isSelected={selectedTopic === "props"}
-          onSelect={() => handleSelect("props")}
-        >
-          Props
-        </TabButtons>
-        <TabButtons
-          isSelected={selectedTopic === "state"}
-          onSelect={() => handleSelect("state")}
-        >
-          State
-        </TabButtons>
-      </menu>
-
-      {tabContent}
+          {tabContent}
+        </Tabs>
 
       {/* // ********* Rendering content conditionally in 2nd way ****** */}
 
@@ -97,6 +106,6 @@ export default function Examples() {
                 <code>{EXAMPLES[selectedTopic].code}</code>
               </pre>
             </div>} */}
-    </section>
+    </Section>
   );
 }

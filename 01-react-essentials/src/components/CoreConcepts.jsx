@@ -1,3 +1,5 @@
+//splitted the components by feature & state
+
 import CoreConcept from "./CoreConcept";
 import { CORE_CONCEPTS } from "../data";
 
