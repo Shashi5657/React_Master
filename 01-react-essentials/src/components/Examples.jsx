@@ -37,50 +37,51 @@ export default function Examples() {
   return (
     <Section title="Examples" id="examples">
       <h2>Examples</h2>
-        {/* //onSelect is passing as props to the TabButtons component */}
-        {/* //for passing the appropriate value to the onClick event,
+      {/* //onSelect is passing as props to the TabButtons component */}
+      {/* //for passing the appropriate value to the onClick event,
              here we r using it as an arrow function & passing an argument to it , 
              so that with that argument we can get to know which button was clicked */}
 
-        {/* here actually handleSelect is a function passed to the props onSelect,
+      {/* here actually handleSelect is a function passed to the props onSelect,
              but since we need to pass a argument to determine which handleSelect
              button was clicked, we converted the handleSelect function as arrow function 
              & passed an argument to it for each of the function */}
 
-        {/* here I am passing value to the isSelected props based on the condition,
+      {/* here I am passing value to the isSelected props based on the condition,
              that if the selectedTopic is components it is passed such like that */}
-        <Tabs
-          buttons={
-            <>
-              <TabButtons
-                isSelected={selectedTopic === "components"}
-                onClick={() => handleSelect("components")}
-              >
-                Components
-              </TabButtons>
-              <TabButtons
-                isSelected={selectedTopic === "jsx"}
-                onClick={() => handleSelect("jsx")}
-              >
-                JSX
-              </TabButtons>
-              <TabButtons
-                isSelected={selectedTopic === "props"}
-                onClick={() => handleSelect("props")}
-              >
-                Props
-              </TabButtons>
-              <TabButtons
-                isSelected={selectedTopic === "state"}
-                onClick={() => handleSelect("state")}
-              >
-                State
-              </TabButtons>
-            </>
-          }
-        >
-          {tabContent}
-        </Tabs>
+      <Tabs
+        // buttonsContainer="menu"
+        buttons={
+          <>
+            <TabButtons
+              isSelected={selectedTopic === "components"}
+              onClick={() => handleSelect("components")}
+            >
+              Components
+            </TabButtons>
+            <TabButtons
+              isSelected={selectedTopic === "jsx"}
+              onClick={() => handleSelect("jsx")}
+            >
+              JSX
+            </TabButtons>
+            <TabButtons
+              isSelected={selectedTopic === "props"}
+              onClick={() => handleSelect("props")}
+            >
+              Props
+            </TabButtons>
+            <TabButtons
+              isSelected={selectedTopic === "state"}
+              onClick={() => handleSelect("state")}
+            >
+              State
+            </TabButtons>
+          </>
+        }
+      >
+        {tabContent}
+      </Tabs>
 
       {/* // ********* Rendering content conditionally in 2nd way ****** */}
 

@@ -1,12 +1,13 @@
 import { Children } from "react";
 
-export default function Tabs({ children, buttons }) {
+export default function Tabs({ children, buttons, buttonsContainer = 'menu' }) {
+  const ButtonsContainer = buttonsContainer;
   return (
     <>
-      <menu>
-        {buttons}
-      </menu>
+      <ButtonsContainer>{buttons}</ButtonsContainer>
       {children}
     </>
   );
 }
+
+// buttonsCOntainer = ButtonsContainer can be directly used
