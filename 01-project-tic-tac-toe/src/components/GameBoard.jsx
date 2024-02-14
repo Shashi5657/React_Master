@@ -1,17 +1,46 @@
-//an array which consists of three arrays, in which each each of the array contains 3 items
+import { useState } from "react";
 
+//an array which consists of three arrays, in which each each of the array contains 3 items
+// because we wanted 9 boxes for the game
 const initialGameBoard = [
   [null, null, null],
   [null, null, null],
   [null, null, null],
 ];
 
-export default function GameBoard() {
+export default function GameBoard({onSelectSquare, activePlayerSymbol}) {
+  //creating this state to update the game board with (X, O) i.e., in  rows & columns
+  // initially we'll set the value to null, so using initialgameboard
+  const [gameBoard, setGameBoard] = useState(initialGameBoard);
+
+  //this function is used foe clicking simply for selecting square & putting our mark,
+  //so to know which square it was clicked, it takes tha arguments rowIndex and colIndex,
+  //rowIndex gives which array it is initially selecte,
+  //colIndex gives which item is selected from the array that is selected from rowIndex,
+  function handleSelectSquare(rowIndex, colIndex) {
+    // for updating the board we set this as setGameBoard, 
+    // initially it takes the prevGameBoard as an arguments
+    setGameBoard((prevGameBoard) => {
+        //when we r using arrays / objects we need to use spread operator(...),
+        //if we don't use then ui will directly get updated
+        //this spread operator makes a copy of the initialGameBoard,
+        //& we stored in the const updatedBoard, so we'll update it through this const
+      const updatedBoard = [
+        ...prevGameBoard.map((innerArray) => [...innerArray]),
+      ];
+      updatedBoard[rowIndex][colIndex] = activePlayerSymbol;
+      return updatedBoard;
+    });
+
+    onSelectSquare();
+  }
   return (
     <ol id="game-board">
-        {/* initially we mapped initialGameBoard which contains three arrays , so it returns each 
+      {/* initially we mapped initialGameBoard which contains three arrays , so it returns each 
         array at a tym that too 3 tyms because it contains 3 arrays */}
-      {initialGameBoard.map((row, rowIndex) => (
+        {/* here now gameBoard initial value is initialGameBoard itself , so for state updating,
+        we used gameBoard here directly */}
+      {gameBoard.map((row, rowIndex) => (
         <li key={rowIndex}>
           <ol>
             {/* here we took that array that returned from the above mapping ,
@@ -20,7 +49,9 @@ export default function GameBoard() {
             like this we'll extract all items from 3 arrays */}
             {row.map((playerSymbol, colIndex) => (
               <li key={colIndex}>
-                <button>{playerSymbol}</button>
+                <button onClick={() => handleSelectSquare(rowIndex, colIndex)}>
+                  {playerSymbol}
+                </button>
               </li>
             ))}
           </ol>
