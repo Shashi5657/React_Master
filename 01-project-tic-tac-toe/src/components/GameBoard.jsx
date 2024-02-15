@@ -6,22 +6,17 @@ const initialGameBoard = [
   [null, null, null],
 ];
 
-
 export default function GameBoard({
   onSelectSquare,
   turns,
   // activePlayerSymbol,
 }) {
-
   let gameBoard = initialGameBoard;
-
-
+  
   for (const turn of turns) {
     const { square, player } = turn;
     const { row, col } = square;
-
     gameBoard[row][col] = player;
-    
   }
 
   // //creating this state to update the game board with (X, O) i.e., in  rows & columns
@@ -49,7 +44,6 @@ export default function GameBoard({
 
   //   onSelectSquare();
   // }
-
   return (
     <ol id="game-board">
       {/* initially we mapped initialGameBoard which contains three arrays , so it returns each 
