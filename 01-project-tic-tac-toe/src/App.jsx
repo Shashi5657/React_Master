@@ -5,17 +5,18 @@ import Log from "./components/Log";
 
 function App() {
   const [activePlayer, setActivePlayer] = useState("X");
+  //we used single piece of state gameTurns to update the UI in both the gameboard & log component
   const [gameTurns, setGameTurns] = useState([]);
 
   function handleSelectSquare(rowIndex, colIndex) {
     setActivePlayer((curActivePlayer) => (curActivePlayer === "X" ? "O" : "X"));
     setGameTurns((prevTurns) => {
-      let currentPlayer = 'X';
+      let currentPlayer = "X";
       if (prevTurns.length > 0 && prevTurns[0].player === "X") {
         currentPlayer = "O";
       }
       const updatedTurns = [
-        //the object here describes which player clicked which button 
+        //the object here describes which player clicked which button
         { square: { row: rowIndex, col: colIndex }, player: currentPlayer },
         ...prevTurns,
       ];
@@ -39,7 +40,7 @@ function App() {
         </ol>
         <GameBoard onSelectSquare={handleSelectSquare} turns={gameTurns} />
       </div>
-      <Log />
+      <Log turns={gameTurns} />
     </main>
   );
 }
