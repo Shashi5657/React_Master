@@ -12,12 +12,19 @@ export default function GameBoard({
   // activePlayerSymbol,
 }) {
   let gameBoard = initialGameBoard;
-  
+
   for (const turn of turns) {
     const { square, player } = turn;
     const { row, col } = square;
+
     gameBoard[row][col] = player;
   }
+
+  //here we commented out the gameboard & started using gameTurns ,
+  // because through this gameBoard , we get info like which player clicked & which sqare clicked
+  //but not in a order which is a limited info,
+  //so instead of this we created a new state gameTurns
+  //which consists of all the required data for gameBoard as well as for log
 
   // //creating this state to update the game board with (X, O) i.e., in  rows & columns
   // // initially we'll set the value to null, so using initialgameboard

@@ -15,6 +15,7 @@ function App() {
         currentPlayer = "O";
       }
       const updatedTurns = [
+        //the object here describes which player clicked which button 
         { square: { row: rowIndex, col: colIndex }, player: currentPlayer },
         ...prevTurns,
       ];
