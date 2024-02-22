@@ -1,24 +1,11 @@
-//an array which consists of three arrays, in which each each of the array contains 3 items
-// because we wanted 9 boxes for the game
-const initialGameBoard = [
-  [null, null, null],
-  [null, null, null],
-  [null, null, null],
-];
+
 
 export default function GameBoard({
   onSelectSquare,
-  turns,
+  board,
   // activePlayerSymbol,
 }) {
-  let gameBoard = initialGameBoard;
-
-  for (const turn of turns) {
-    const { square, player } = turn;
-    const { row, col } = square;
-
-    gameBoard[row][col] = player;
-  }
+  
 
   //here we commented out the gameboard & started using gameTurns ,
   // because through this gameBoard , we get info like which player clicked & which sqare clicked
@@ -57,7 +44,7 @@ export default function GameBoard({
         array at a tym that too 3 tyms because it contains 3 arrays */}
       {/* here now gameBoard initial value is initialGameBoard itself , so for state updating,
         we used gameBoard here directly */}
-      {gameBoard.map((row, rowIndex) => (
+      {board.map((row, rowIndex) => (
         <li key={rowIndex}>
           <ol>
             {/* here we took that array that returned from the above mapping ,
