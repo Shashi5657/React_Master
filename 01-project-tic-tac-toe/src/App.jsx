@@ -14,7 +14,7 @@ const initialGameBoard = [
 ];
 
 // used this function to get the active player info from the gameturns state itself ,
-//instead of having a new state for its 
+//instead of having a new state for its
 function deriveActivePlayer(gameTurns) {
   let currentPlayer = "X";
 
@@ -80,6 +80,7 @@ function App() {
     });
   }
 
+  
   function handleRestart() {
     setGameTurns([]);
   }
