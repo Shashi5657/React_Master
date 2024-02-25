@@ -20,9 +20,9 @@ export default function UserInput({onChangeInput, userInput}) {
           <label>Annual Investment</label>
           <input
             type="number"
-            value={userInput.annualInvestmemnt}
+            value={userInput.annualInvestment}
             onChange={(event) =>
-              onChangeInput("annualInvestmemnt", event.target.value)
+              onChangeInput("annualInvestment", event.target.value)
             }
             required
           />
@@ -41,7 +41,7 @@ export default function UserInput({onChangeInput, userInput}) {
           <input
             type="number"
             value={userInput.duration}
-            onChange={(event) => onChangeInputx("duration", event.target.value)}
+            onChange={(event) => onChangeInput("duration", event.target.value)}
             required
           />
         </p>
