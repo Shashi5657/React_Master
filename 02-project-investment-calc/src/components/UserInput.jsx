@@ -1,6 +1,4 @@
-import { useState } from "react";
-
-export default function UserInput(userInput, onChangeInput) {
+export default function UserInput({onChangeInput, userInput}) {
   return (
     <section id="user-input">
       <div className="input-group">
@@ -34,9 +32,7 @@ export default function UserInput(userInput, onChangeInput) {
           <input
             type="number"
             value={userInput.expectedReturn}
-            onChange={(event) =>
-              onChangeInput("expectedReturn", event.target.value)
-            }
+            onChange={(event) => onChangeInput("expectedReturn", event.target.value)}
             required
           />
         </p>
@@ -45,7 +41,7 @@ export default function UserInput(userInput, onChangeInput) {
           <input
             type="number"
             value={userInput.duration}
-            onChangeInput={(event) => onChange("duration", event.target.value)}
+            onChange={(event) => onChangeInputx("duration", event.target.value)}
             required
           />
         </p>
