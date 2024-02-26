@@ -2,6 +2,7 @@
 /* but the drawback is it is not scoped for one component */
 /* for this drawback we can use inline css */
 /* this is vanilla css & here we split the css code components */
+/* this module in the name make this css class scoped to component */
 
 header {
   display: flex;
@@ -30,7 +31,9 @@ header h1 {
   margin: 0;
 }
 
-header p {
+/* here this is just in header.css but this styles are uploaded in authInput component too, */
+/* because this is not scoped to component */
+.paragraph {
   text-align: center;
   color: #a39191;
   margin: 0;
