@@ -1,4 +1,7 @@
 import { useState } from "react";
+import Button from "./Butoon";
+import Input from "./Input";
+
 //this is styled component(third-party-package)
 // it is installed by npm install styled-components
 // import { styled } from "styled-components";
@@ -66,43 +69,43 @@ export default function AuthInputs() {
   const passwordNotValid = submitted && enteredPassword.trim().length < 6;
 
   return (
-    <div id="auth-inputs">
-      <div>
-        <p className="paragraph">
-          {/* dynamic & conditional styling with css classes */}
-          {/* here the label class is always applied but invalid class is applied conditionally 
+    <div
+      id="auth-inputs"
+      className="w-full max-w-sm p-8 mx-auto rounded shadow-md bg-gradient-to-b from-stone-700 to-stone-800"
+    >
+      <div className="flex flex-col gap-2 mb-6">
+        {/* dynamic & conditional styling with css classes */}
+        {/* here the label class is always applied but invalid class is applied conditionally 
           so for that we used template string(``) */}
-          {/* className={`label ${emailNotValid ? "invalid" : ""}`} */}
-          <label $invalid={emailNotValid}>Email</label>
-          <input
-            $invalid={emailNotValid}
-            type="email"
-            //inline css using conditionally
-            //this is dynamic & conditional inline css
-            // style={{ backgroundColor: emailNotValid ? "#fed2d2" : "#d1d5db" }}
-            // className={emailNotValid ? "invalid" : undefined}
-            onChange={(event) => handleInputChange("email", event.target.value)}
-          />
-        </p>
-        <p>
-          <label $invalid={passwordNotValid}>Password</label>
-          <input
-            $invalid={passwordNotValid}
-            type="password"
-            // className={passwordNotValid ? "invalid" : undefined}
-            onChange={(event) =>
-              handleInputChange("password", event.target.value)
-            }
-          />
-        </p>
+        {/* className={`label ${emailNotValid ? "invalid" : ""}`} */}
+        {/* <label $invalid={emailNotValid}>Email</label> */}
+        <Input
+          label="Email"
+          invalid={emailNotValid}
+          type="email"
+          //inline css using conditionally
+          //this is dynamic & conditional inline css
+          // style={{ backgroundColor: emailNotValid ? "#fed2d2" : "#d1d5db" }}
+          // className={emailNotValid ? "invalid" : undefined}
+          onChange={(event) => handleInputChange("email", event.target.value)}
+        />
+
+        {/* <label $invalid={passwordNotValid}>Password</label> */}
+        <Input
+          label="Password"
+          invalid={passwordNotValid}
+          type="password"
+          // className={passwordNotValid ? "invalid" : undefined}
+          onChange={(event) =>
+            handleInputChange("password", event.target.value)
+          }
+        />
       </div>
-      <div className="actions">
-        <button type="button" className="text-button">
+      <div className="flex justify-end gap-4">
+        <button type="button" className="text-amber-400 hover:text-amber-500">
           Create a new account
         </button>
-        <button className="button" onClick={handleLogin}>
-          Sign In
-        </button>
+        <Button onClick={handleLogin}>Sign In</Button>
       </div>
     </div>
   );
