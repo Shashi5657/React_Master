@@ -91,6 +91,7 @@ export default function AuthInputs() {
         />
 
         {/* <label $invalid={passwordNotValid}>Password</label> */}
+
         <Input
           label="Password"
           invalid={passwordNotValid}
@@ -101,6 +102,7 @@ export default function AuthInputs() {
           }
         />
       </div>
+      
       <div className="flex justify-end gap-4">
         <button type="button" className="text-amber-400 hover:text-amber-500">
           Create a new account
