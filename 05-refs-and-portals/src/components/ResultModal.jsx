@@ -1,7 +1,5 @@
 import { forwardRef } from "react";
 
-
-
 const ResultModal = forwardRef(function ResultModal(
   { result, targetTime },
   ref
