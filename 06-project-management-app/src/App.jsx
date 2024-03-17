@@ -16,6 +16,7 @@ function App() {
         ...prevState,
         selectedProjectId: null,
       };
+      
     });
   }
 
