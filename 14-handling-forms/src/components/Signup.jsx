@@ -1,8 +1,7 @@
 import { useState } from "react";
 
 export default function Signup() {
-
-    const [passwordsAreNotEqual, SetPasswordsAreNotEqual] = useState(false)
+  const [passwordsAreNotEqual, SetPasswordsAreNotEqual] = useState(false);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -14,11 +13,11 @@ export default function Signup() {
     //to extract multiple values at a tym. used object class & get fromEntries to get all entries
     const data = Object.fromEntries(fd.entries());
     data.acquisition = acquisitionChannel;
-    
-//validation logic for matching passwords
-    if(data.password !== data['confirm-password']){
-        SetPasswordsAreNotEqual(true)
-        return;
+
+    //validation logic for matching passwords
+    if (data.password !== data["confirm-password"]) {
+      SetPasswordsAreNotEqual(true);
+      return;
     }
 
     console.log(data);
@@ -30,13 +29,19 @@ export default function Signup() {
 
       <div className="control">
         <label htmlFor="email">Email</label>
-        <input id="email" type="email" name="email" required/>
+        <input id="email" type="email" name="email" required />
       </div>
 
       <div className="control-row">
         <div className="control">
           <label htmlFor="password">Password</label>
-          <input id="password" type="password" name="password" required minLength={6}/>
+          <input
+            id="password"
+            type="password"
+            name="password"
+            required
+            minLength={6}
+          />
         </div>
 
         <div className="control">
@@ -47,7 +52,9 @@ export default function Signup() {
             name="confirm-password"
             required
           />
-          <div className="control-error">{passwordsAreNotEqual && <p>Passwords must match</p>}</div>
+          <div className="control-error">
+            {passwordsAreNotEqual && <p>Passwords must match</p>}
+          </div>
         </div>
       </div>
 
@@ -56,12 +63,12 @@ export default function Signup() {
       <div className="control-row">
         <div className="control">
           <label htmlFor="first-name">First Name</label>
-          <input type="text" id="first-name" name="first-name" required/>
+          <input type="text" id="first-name" name="first-name" required />
         </div>
 
         <div className="control">
           <label htmlFor="last-name">Last Name</label>
-          <input type="text" id="last-name" name="last-name" required/>
+          <input type="text" id="last-name" name="last-name" required />
         </div>
       </div>
 
@@ -75,6 +82,7 @@ export default function Signup() {
           <option value="other">Other</option>
         </select>
       </div>
+
 
       <fieldset>
         <legend>How did you find us?</legend>
@@ -106,8 +114,13 @@ export default function Signup() {
 
       <div className="control">
         <label htmlFor="terms-and-conditions">
-          <input type="checkbox" id="terms-and-conditions" name="terms" required/>I
-          agree to the terms and conditions
+          <input
+            type="checkbox"
+            id="terms-and-conditions"
+            name="terms"
+            required
+          />
+          I agree to the terms and conditions
         </label>
       </div>
 
