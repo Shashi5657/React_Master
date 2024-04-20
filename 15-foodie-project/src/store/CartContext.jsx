@@ -10,7 +10,7 @@ import { createContext, useReducer } from "react";
 const CartContext = createContext({
   items: [],
   addItem: (item) => {},
-  deleteItem: (id) => {},
+  removeItem: (id) => {},
 });
 //this is the shape for our cartContext
 
