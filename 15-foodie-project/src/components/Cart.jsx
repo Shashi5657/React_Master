@@ -19,9 +19,16 @@ export default function Cart() {
   function handleCloseCart() {
     userProgressCtx.hideCart();
   }
+  function handleGoToCart() {
+    userProgressCtx.showCheckout();
+  }
   return (
     //imported modal component coz in a modal way we display tis
-    <Modal className="cart" open={userProgressCtx.progress === "cart"}>
+    <Modal
+      className="cart"
+      open={userProgressCtx.progress === "cart"}
+      onClose={userProgressCtx.progress === "cart" ? handleCloseCart : null}
+    >
       <h2>Your cart</h2>
       {/* imported crtCtx & maping the items present in the context
        to display the item name & quantity */}
@@ -32,8 +39,8 @@ export default function Cart() {
             name={item.name}
             quantity={item.quantity}
             price={item.price}
-            onDecrease={()=> cartCtx.removeItem(item.id)}
-            onIncrease={()=> cartCtx.addItem(item)} 
+            onDecrease={() => cartCtx.removeItem(item.id)}
+            onIncrease={() => cartCtx.addItem(item)}
           />
         ))}
       </ul>
@@ -42,8 +49,11 @@ export default function Cart() {
         <Button onClick={handleCloseCart} textOnly>
           Close
         </Button>
-        {cartCtx.items.length > 0 && <Button>Go to cart</Button>}
+        {cartCtx.items.length > 0 && (
+          <Button onClick={handleGoToCart}>Go to cart</Button>
+        )}
       </p>
     </Modal>
+    //conditionally rednering the go to cart button
   );
 }

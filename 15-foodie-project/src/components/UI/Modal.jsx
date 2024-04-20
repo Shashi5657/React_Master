@@ -4,7 +4,7 @@
 import { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 
-export default function ({ children, open, className='' }) {
+export default function ({ children, open,onClose, className='' }) {
     //to access the open from outside we r using this ref & effects
     const dialog = useRef();
     useEffect(()=> {
@@ -18,7 +18,11 @@ export default function ({ children, open, className='' }) {
     //to add class based on cart or checkout we added a extra prop className here
     // to embed this in the html file, we used this createPortal,which has another arg at the end
   return createPortal(
-    <dialog ref={dialog} className={`modal ${className}`}>{children}</dialog>,
+    <dialog ref={dialog} className={`modal ${className}`} onClose={onClose}>{children}</dialog>,
     document.getElementById("modal")
   );
 }
+//when we close the model by using esc key , dialog is closed by the browser,
+//but in the app, userProgress won't change
+//ex. it will still stay at cart or checkout 
+// to resolvw ths problem we add onCLose prop in the dialog elment
