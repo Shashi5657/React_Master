@@ -11,6 +11,7 @@ const CartContext = createContext({
   items: [],
   addItem: (item) => {},
   removeItem: (id) => {},
+  clearCart : ()=> {}
 });
 //this is the shape for our cartContext
 
@@ -70,14 +71,18 @@ function CartReducer(state, action) {
     if (existingCartItem.quantity === 1) {
       updatedItems.splice(existingCartItemIndex, 1);
     } else {
-        //we created a new item based on old item & reduced the quantity
+      //we created a new item based on old item & reduced the quantity
       const updatedItem = {
         ...existingCartItem,
         quantity: existingCartItem.quantity - 1,
       };
-      updatedItems[existingCartItemIndex] = updatedItem
+      updatedItems[existingCartItemIndex] = updatedItem;
     }
     return { ...state, items: updatedItems };
+  }
+
+  if (action.type === "CLEAR_CART") {
+    return { ...state, items: [] };
   }
 
   //this is that  unchanged state
@@ -104,12 +109,18 @@ export function CartContexTProvider({ children }) {
   function removeItem(id) {
     dispatchCartAction({ type: "REMOVE_ITEM", id });
   }
+
+  function clearCart(){
+    dispatchCartAction({type : 'CLEAR_CART'})
+  }
+
   const cartContext = {
     items: cart.items,
     addItem,
     removeItem,
+    clearCart
   };
-//   console.log(cartContext);
+  //   console.log(cartContext);
 
   //the context that is created with createContext haas the provider property
   return (

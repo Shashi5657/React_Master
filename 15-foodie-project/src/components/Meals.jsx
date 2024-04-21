@@ -1,6 +1,7 @@
 // import { useState, useEffect } from "react";
 import useHttp from "../hooks/useHttp";
 import MealItem from "./MealItem";
+import Error from "./Error";
 
 const requestConfig = {}
 
@@ -31,8 +32,7 @@ export default function Meals() {
   //   fetchMeals();
   // }, []);
 
-  //with the loaded meals we r mapping it in the list
-  //used the MealItem component to render each item
+ 
 
   const {
     data: loadedMeals,
@@ -41,10 +41,15 @@ export default function Meals() {
   } = useHttp("http://localhost:3000/meals", requestConfig, []);
 
   if(isLoading){
-    return <p>Fetching meals...</p>
+    return <p className="center">Fetching meals...</p>
   }
 
+  if(error){
+    return <Error title="failed to fetch meals" message={error} />
+  }
 
+ //with the loaded meals we r mapping it in the list
+  //used the MealItem component to render each item
   return (
     <ul id="meals">
       {loadedMeals.map((meal) => (
