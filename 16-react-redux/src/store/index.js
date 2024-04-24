@@ -9,7 +9,7 @@
 //them the operation performed by the reducer
 
 
-//step-1: 
+//step-1: importing createStore from redux
 // import {createStore} from 'redux'
 import {createSlice, configureStore} from '@reduxjs/toolkit'
 
@@ -69,9 +69,10 @@ const countSlice = createSlice({
 
 export const countActions = countSlice.actions
 
-//step -2 : we need reducer function here so 
+//step -2 : createTore wants a reducer function, we need reducer function here so 
 const store = configureStore({
     reducer : countSlice.reducer
 })
 
+// to use this in all the files, we r exporting it so that we can use it outside
 export default store;

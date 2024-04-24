@@ -6,6 +6,7 @@ import store from "./store";
 import "./index.css";
 import App from "./App";
 
+//only the wrapped files have access t the redux
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
