@@ -5,6 +5,8 @@ import classes from './Counter.module.css';
 const Counter = () => {
 
 
+  //using useSelector to get access to data managed in the store
+  //when u use useSelector, redux will automaticlly set up subscription to redux store
   const counter = useSelector(state => state.count)
   const show = useSelector(state => state.showCounter)
 
