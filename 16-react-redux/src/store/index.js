@@ -1,3 +1,14 @@
+//we have data in this store, & we use it from inside our components
+//components subscribe to the store, & then they get the data they need
+//components never directly manage the store data
+//we hv subscription, but we dont have data flow in other direction
+//we use reducer function to change the  store data 
+//here components should trigger a data change
+//we hv actions & component disptach actiona
+//redux then forwards the actions to the reducer
+//them the operation performed by the reducer
+
+
 //step-1: 
 // import {createStore} from 'redux'
 import {createSlice, configureStore} from '@reduxjs/toolkit'
