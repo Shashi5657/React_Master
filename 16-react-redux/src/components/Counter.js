@@ -9,8 +9,8 @@ const Counter = () => {
 
   //using useSelector to get access to data managed in the store
   //when u use useSelector, redux will automaticlly set up subscription to redux store
-  const counter = useSelector(state => state.count)
-  const show = useSelector(state => state.showCounter)
+  const counter = useSelector(state => state.counter.count)
+  const show = useSelector(state => state.counter.showCounter)
 
   //this dispatch here is a function
   const dispatch = useDispatch()
