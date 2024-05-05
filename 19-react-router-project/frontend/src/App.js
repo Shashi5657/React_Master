@@ -1,17 +1,23 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RootLayout from "./pages/Root";
 import HomePage from "./pages/Home";
-import EventsPage, {loader as eventsLoader} from "./pages/Events";
-import EventDetails from "./pages/EventDetails";
+import EventsPage, { loader as eventsLoader } from "./pages/Events";
+import EventDetails, {
+  loader as eventDetailsLoader, action as deleteEventAction
+} from "./pages/EventDetails";
 import NewEventPage from "./pages/NewEvent";
 import EditEventPage from "./pages/EditEvent";
 import EventsRoot from "./pages/EventsRoot";
 import ErrorPage from "./pages/Error";
+import {action as manipulateEventAction} from './components/EventForm'
+// import NewsletterPage, { action as newsletterAction } from './pages/Newsletter';
+import NewsletterPage, {action as newsletterAction} from "./components/Newsletter";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
+    errorElement: <ErrorPage />,
     children: [
       { index: true, element: <HomePage /> },
       {
@@ -21,13 +27,29 @@ const router = createBrowserRouter([
           {
             index: true,
             element: <EventsPage />,
-            errorElement : <ErrorPage />,
-            loader: eventsLoader
+            loader: eventsLoader,
           },
-          { path: ":eventId", element: <EventDetails /> },
-          { path: "new", element: <NewEventPage /> },
-          { path: ":eventId/edit", element: <EditEventPage /> },
+          {
+            path: ":eventId",
+            id:'event-detail',
+            loader: eventDetailsLoader,
+            children: [
+              {
+                index: true,
+                element: <EventDetails />,
+                action: deleteEventAction
+              },
+              { path: "edit", element: <EditEventPage />, action : manipulateEventAction },
+            ],
+          },
+
+          { path: "new", element: <NewEventPage />, action : manipulateEventAction },
         ],
+      },
+      {
+        path: 'newsletter',
+        element: <NewsletterPage />,
+        action: newsletterAction,
       },
     ],
   },
