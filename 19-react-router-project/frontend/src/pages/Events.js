@@ -22,7 +22,7 @@ export async function loader() {
     //   status: 500,
     // });
 
-    return json({ message: "could not fetch events" }, { status: 500})
+    return json({ message: "could not fetch events" }, { status: 500 });
   } else {
     return response;
     // const resData = await response.json();
