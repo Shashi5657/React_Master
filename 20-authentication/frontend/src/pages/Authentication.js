@@ -1,4 +1,4 @@
-import AuthForm from '../components/AuthForm';
+import AuthForm from "../components/AuthForm";
 
 function AuthenticationPage() {
   return <AuthForm />;
@@ -6,13 +6,12 @@ function AuthenticationPage() {
 
 export default AuthenticationPage;
 
-export async function action({request}){
+export async function action({ request }) {
+  const data = await request.formData();
 
-  const data = await request.formData()
-
+  
   const authData = {
-    email : data.get('email'),
-    password : data.get('password')
-  }
-
+    email: data.get("email"),
+    password: data.get("password"),
+  };
 }
