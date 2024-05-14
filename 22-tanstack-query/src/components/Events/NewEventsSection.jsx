@@ -14,8 +14,8 @@ export default function NewEventsSection() {
   //such as data, isPEnding, isError & everything
   //but we need to provide the fetching function, it generates all the data automatically
  const {data, isPending, isError, error} = useQuery({
-    queryKey : ['events'],
-    queryFn : fetchEvents,
+    queryKey : ['events', {max: 3}],
+    queryFn : ({signal}) => fetchEvents({signal, max : 3}),
     staleTime : 5000,
     // gcTime : 1000
   })
