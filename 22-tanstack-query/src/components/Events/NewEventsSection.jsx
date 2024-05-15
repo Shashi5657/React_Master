@@ -1,24 +1,22 @@
-
-import { useQuery } from '@tanstack/react-query'
-import LoadingIndicator from '../UI/LoadingIndicator.jsx';
-import ErrorBlock from '../UI/ErrorBlock.jsx';
-import EventItem from './EventItem.jsx';
-import { fetchEvents } from '../../util/http.js';
+import { useQuery } from "@tanstack/react-query";
+import LoadingIndicator from "../UI/LoadingIndicator.jsx";
+import ErrorBlock from "../UI/ErrorBlock.jsx";
+import EventItem from "./EventItem.jsx";
+import { fetchEvents } from "../../util/http.js";
 
 export default function NewEventsSection() {
-
-  //anStack Query is an open-source JavaScript library 
+  //anStack Query is an open-source JavaScript library
   //that simplifies data fetching and state management in React applications
 
-  //The query result returned by useQuery contains all of the information about the query 
+  //The query result returned by useQuery contains all of the information about the query
   //such as data, isPEnding, isError & everything
   //but we need to provide the fetching function, it generates all the data automatically
- const {data, isPending, isError, error} = useQuery({
-    queryKey : ['events', {max: 3}],
-    queryFn : ({signal}) => fetchEvents({signal, max : 3}),
-    staleTime : 5000,
+  const { data, isPending, isError, error } = useQuery({
+    queryKey: ["events", { max: 3 }],
+    queryFn: ({ signal }) => fetchEvents({ signal, max: 3 }),
+    staleTime: 5000,
     // gcTime : 1000
-  })
+  });
 
   //gctime - garbage collection time, default is 5 mins
   //tanstack query caches the data for easy refetching.
@@ -33,7 +31,10 @@ export default function NewEventsSection() {
 
   if (isError) {
     content = (
-      <ErrorBlock title="An error occurred" message={error.info?.message || 'failed to fetch events'} />
+      <ErrorBlock
+        title="An error occurred"
+        message={error.info?.message || "failed to fetch events"}
+      />
     );
   }
 
