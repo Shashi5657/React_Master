@@ -1,13 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
 import Greeting from './components/Greeting';
+import Async from './components/Async';
 
 function App() {
   return (
     <div className="App">
-      <Greeting />
+      <Async />
+      {/* <Greeting /> */}
     </div>
   );
 }
 
 export default App;
+
+//search 'jest' & 'react testing library' on google for more about testing
