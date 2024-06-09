@@ -7,11 +7,11 @@ import classes from './Post.module.css'
 function Post({name, message}) {
 
   return (
-    <div className={classes.post}>
+    <li className={classes.post}>
         {/* we can output dynamic values in the curly braces */}
       <p className={classes.author}>{name}</p>
       <p className={classes.text}>{message}</p>
-    </div>
+    </li>
   );
 }
 

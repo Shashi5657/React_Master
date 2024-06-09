@@ -11,16 +11,21 @@
 //react fragments - only one element should be wrapped around all elements
 //props- we can reuse same components with diff details
 //css styling - post.module.css(for avoiding name clashes), inline styles <div style = {{}}
+//adding event listeners like onChange
+//useState hook, used for dynamic changes!
+//for input values, we use const[value, setValue]= useState, & onChange={changeHandler} func
+//function(event) {event.target.value}
 
 //importing that first component Post
 import Post from "./components/Post";
+import PostsList from "./components/PostsList";
 
 function App() {
+
+  
   return (
     <main>
-      <Post name="shashi" message="Learing React is Awesome" />
-      <Post name="vinay" message="Continous learning is essential" />
-      <Post name="sathu" message="Enhancing skills matter" />
+      <PostsList />
     </main>
   );
 }
