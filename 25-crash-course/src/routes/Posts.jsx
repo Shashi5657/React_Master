@@ -17,31 +17,38 @@
 //function(event) {event.target.value}
 
 //importing that first component Post
-import PostsList from "./components/PostsList";
-import MainHeader from "./components/MainHeader";
+import PostsList from "../components/PostsList";
+// import MainHeader from "./components/MainHeader";
 import { useState } from "react";
+import { Outlet } from "react-router-dom";
 
-function App() {
+function Posts() {
   const [modalIsVisible, setModalIsVisible] = useState(false);
 
-  function showModalHandler() {
-    setModalIsVisible(true);
-  }
-  function hideModalHandler() {
-    setModalIsVisible(false);
-  }
+  // function showModalHandler() {
+  //   setModalIsVisible(true);
+  // }
+  // function hideModalHandler() {
+  //   setModalIsVisible(false);
+  // }
 
   return (
     <>
-      <MainHeader onCreatePost={showModalHandler} />
+      <Outlet />
+      {/* <MainHeader onCreatePost={showModalHandler} /> */}
       <main>
-        <PostsList
-          isPosting={modalIsVisible}
-          onStopPosting={hideModalHandler}
-        />
+        <PostsList />
       </main>
     </>
   );
 }
 
-export default App;
+export default Posts;
+
+export async function loader() {
+  const response = await fetch("http://localhost:8080/posts");
+  const data = await response.json();
+  return data.posts
+}
+
+
