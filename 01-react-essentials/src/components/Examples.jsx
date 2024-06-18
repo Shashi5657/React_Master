@@ -36,7 +36,7 @@ export default function Examples() {
 
   return (
     <Section title="Examples" id="examples">
-      <h2>Examples</h2>
+      {/* <h2>Examples</h2> */}
       {/* //onSelect is passing as props to the TabButtons component */}
       {/* //for passing the appropriate value to the onClick event,
              here we r using it as an arrow function & passing an argument to it , 
