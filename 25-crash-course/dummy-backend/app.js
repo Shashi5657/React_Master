@@ -5,6 +5,7 @@ const { getStoredPosts, storePosts } = require('./data/posts');
 
 const app = express();
 
+
 app.use(bodyParser.json());
 
 app.use((req, res, next) => {
@@ -16,11 +17,13 @@ app.use((req, res, next) => {
   next();
 });
 
+
 app.get('/posts', async (req, res) => {
   const storedPosts = await getStoredPosts();
   // await new Promise((resolve, reject) => setTimeout(() => resolve(), 1500));
   res.json({ posts: storedPosts });
 });
+
 
 app.get('/posts/:id', async (req, res) => {
   const storedPosts = await getStoredPosts();
