@@ -1,11 +1,19 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
 
 function App() {
-  const [mood, setMood] = useState('');
+  const [mood, setMood] = useState("");
   const [colors, setColors] = useState([]);
+
+  const moodColorMapping = {
+    happy: ["#FFD700", "#FFEC8B", "#FFFAF0", "#FFF68F", "#FFE4B5"],
+    sad: ["#1E90FF", "#4682B4", "#87CEFA", "#ADD8E6", "#B0C4DE"],
+    energetic: ["#FF4500", "#FF6347", "#FF7F50", "#FF8C00", "#FFA07A"],
+    calm: ["#2E8B57", "#3CB371", "#66CDAA", "#8FBC8F", "#20B2AA"],
+    romantic: ["#FF1493", "#FF69B4", "#FFB6C1", "#FFC0CB", "#FF5E95"],
+  };
 
   return (
     <>
@@ -30,7 +38,7 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
