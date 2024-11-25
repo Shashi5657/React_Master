@@ -15,6 +15,10 @@ function App() {
     romantic: ["#FF1493", "#FF69B4", "#FFB6C1", "#FFC0CB", "#FF5E95"],
   };
 
+  const handleMoodChange = (e) => {
+    setMood(e.target.value);
+  };
+
   return (
     <>
       <div>
