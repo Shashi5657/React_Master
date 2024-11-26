@@ -19,6 +19,14 @@ function App() {
     setMood(e.target.value);
   };
 
+  const generateColors = () => {
+    if (moodColorMapping[mood.toLowerCase()]) {
+      setColors(moodColorMapping[mood.toLowerCase()]);
+    } else {
+      setColors([]);
+    }
+  };
+
   return (
     <>
       <div>
