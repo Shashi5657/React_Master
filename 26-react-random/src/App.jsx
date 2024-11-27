@@ -29,10 +29,13 @@ function App() {
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
+      <div
+        className="App"
+        style={{ fontFamily: "Arial, sans-serif", textAlign: "center" }}
+      >
+        <header>
+          <h1>Mood-Based Color Generator</h1>
+        </header>
         <a href="https://react.dev" target="_blank">
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
