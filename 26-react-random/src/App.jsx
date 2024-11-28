@@ -36,9 +36,22 @@ function App() {
         <header>
           <h1>Mood-Based Color Generator</h1>
         </header>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <main>
+          <p>Enter your mood to generate a matching color palette:</p>
+          <input
+            type="text"
+            placeholder="e.g., Happy, Sad, Energetic"
+            value={mood}
+            onChange={handleMoodChange}
+            style={{
+              padding: "10px",
+              borderRadius: "5px",
+              width: "60%",
+              marginBottom: "20px",
+            }}
+          />
+          <br />
+        </main>
       </div>
       <h1>Vite + React</h1>
       <div className="card">
