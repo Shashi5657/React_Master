@@ -64,11 +64,35 @@ function App() {
           >
             Generate Palette
           </button>
+
+          {colors.length > 0 && (
+            <div style={{ marginTop: "20px" }}>
+              <h2>Color Palette for "{mood}"</h2>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  marginTop: "10px",
+                }}
+              >
+                {colors.map((color, index) => (
+                  <div
+                    key={index}
+                    style={{
+                      backgroundColor: color,
+                      width: "100px",
+                      height: "100px",
+                      margin: "0 10px",
+                      borderRadius: "10px",
+                      boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+                    }}
+                  ></div>
+                ))}
+              </div>
+            </div>
+          )}
         </main>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   );
 }
