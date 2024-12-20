@@ -91,6 +91,12 @@ function App() {
               </div>
             </div>
           )}
+
+          {colors.length === 0 && mood && (
+            <p style={{ marginTop: "20px", color: "red" }}>
+              Sorry, no palette available for "{mood}". Try another mood!
+            </p>
+          )}
         </main>
       </div>
     </>
