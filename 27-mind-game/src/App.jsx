@@ -4,7 +4,10 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [currentGuess, setCurrentGuess] = useState(50); // Start with a mid-point guess
+  const [range, setRange] = useState({ min: 1, max: 100 });
+  const [guessCount, setGuessCount] = useState(0);
+  const [gameOver, setGameOver] = useState(false);
 
   return (
     <>
