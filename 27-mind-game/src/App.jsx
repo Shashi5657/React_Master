@@ -9,6 +9,31 @@ function App() {
   const [guessCount, setGuessCount] = useState(0);
   const [gameOver, setGameOver] = useState(false);
 
+  const handleHigher = () => {
+    setRange((prev) => ({ ...prev, min: currentGuess + 1 }));
+    setGuessCount((prev) => prev + 1);
+  };
+
+  const handleLower = () => {
+    setRange((prev) => ({ ...prev, max: currentGuess - 1 }));
+    setGuessCount((prev) => prev + 1);
+  };
+
+  useEffect(() => {
+    if (range.min > range.max) {
+      setGameOver(true);
+      return;
+    }
+    setCurrentGuess(Math.floor((range.min + range.max) / 2));
+  }, [range]);
+
+  const resetGame = () => {
+    setRange({ min: 1, max: 100 });
+    setCurrentGuess(50);
+    setGuessCount(0);
+    setGameOver(false);
+  };
+
   return (
     <>
       <div
