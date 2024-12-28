@@ -43,6 +43,65 @@ function App() {
         <header>
           <h1>The Mind-Reading Number Game</h1>
         </header>
+        <main>
+          {!gameOver ? (
+            <div>
+              <p>Think of a number between 1 and 100, and I'll guess it!</p>
+              <h2>Is your number {currentGuess}?</h2>
+              <div style={{ marginTop: "20px" }}>
+                <button
+                  onClick={handleLower}
+                  style={{
+                    padding: "10px 20px",
+                    marginRight: "10px",
+                    borderRadius: "5px",
+                    border: "none",
+                    backgroundColor: "#FF6347",
+                    color: "white",
+                    cursor: "pointer",
+                  }}
+                >
+                  Lower
+                </button>
+                <button
+                  onClick={handleHigher}
+                  style={{
+                    padding: "10px 20px",
+                    marginLeft: "10px",
+                    borderRadius: "5px",
+                    border: "none",
+                    backgroundColor: "#4CAF50",
+                    color: "white",
+                    cursor: "pointer",
+                  }}
+                >
+                  Higher
+                </button>
+              </div>
+              <p style={{ marginTop: "20px" }}>
+                Number of guesses: {guessCount}
+              </p>
+            </div>
+          ) : (
+            <div>
+              <h2>Game Over!</h2>
+              <p>It seems like you've tricked me! Want to try again?</p>
+              <button
+                onClick={resetGame}
+                style={{
+                  padding: "10px 20px",
+                  borderRadius: "5px",
+                  border: "none",
+                  backgroundColor: "#2196F3",
+                  color: "white",
+                  cursor: "pointer",
+                }}
+              >
+                Play Again
+              </button>
+            </div>
+          )}
+        </main>
       </div>
     </>
   );
