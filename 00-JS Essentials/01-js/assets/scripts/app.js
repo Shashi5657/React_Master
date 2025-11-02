@@ -59,23 +59,23 @@
 
 //******* JavaScript Destructuring *********
 
-const names = ["arun", "rikky", "sritej"]
+const names = ["arun", "rikky", "sritej"];
 
 const [friend1, friend2, friend3] = ["arun", "rikky", "sritej"];
 
 console.log(friend3);
 
 const user = {
-    name: "sathu",
-    id:333
-}
+  name: "sathu",
+  id: 333,
+};
 
-const {name:userName, id} = {
+const { name: userName, id } = {
   name: "sathu",
   id: 333,
 };
 console.log(userName);
-console.log(id)
+console.log(id);
 
 //************ Spread Operator ***********8
 
@@ -106,35 +106,36 @@ if (password === "shashi") {
   console.log("who are you?");
 }
 
-const hobbies = ["eat", "sleep"]
+const hobbies = ["eat", "sleep"];
 
 for (const hobby of hobbies) {
-    console.log(hobby)
+  console.log(hobby);
 }
-
 
 //****** passing functions as values to another function ********
 
 function user1() {
-    console.log("this is user1")
+  console.log("this is user1");
 }
 
 function user2() {
-    console.log("this is user2")
+  console.log("this is user2");
 }
 
-setTimeout(user1, 2000)
-setTimeout(user2, 3000)
-setTimeout(()=> { console.log("This is user3")},4000)
+setTimeout(user1, 2000);
+setTimeout(user2, 3000);
+setTimeout(() => {
+  console.log("This is user3");
+}, 4000);
 
 // ***** Defining functions inisde of a function ******
 
 function init() {
-    function greet() {
-        console.log("helloooo")
-    }
+  function greet() {
+    console.log("helloooo");
+  }
 
-    greet()
+  greet();
 }
 
-init()
+init();

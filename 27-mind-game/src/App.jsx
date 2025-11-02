@@ -1,6 +1,4 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import { useEffect, useState } from "react";
 import "./App.css";
 
 function App() {
@@ -46,7 +44,7 @@ function App() {
         <main>
           {!gameOver ? (
             <div>
-              <p>Think of a number between 1 and 100, and I'll guess it!</p>
+              <p>Think of a number between 1 and 100, and I will guess it!</p>
               <h2>Is your number {currentGuess}?</h2>
               <div style={{ marginTop: "20px" }}>
                 <button
@@ -85,7 +83,7 @@ function App() {
           ) : (
             <div>
               <h2>Game Over!</h2>
-              <p>It seems like you've tricked me! Want to try again?</p>
+              <p>It seems like you have tricked me! Want to try again?</p>
               <button
                 onClick={resetGame}
                 style={{

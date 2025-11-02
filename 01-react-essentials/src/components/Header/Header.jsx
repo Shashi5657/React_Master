@@ -1,7 +1,6 @@
 // we have to use images by importing like this, so it would be efficient , if we use path , it would get lost while deployment
 import reactImg from "../../assets/react-core-concepts.png";
-import './Header.css'
-
+import "./Header.css";
 
 //***** Creating the dynamic content(changing content ) *****
 
@@ -14,15 +13,18 @@ function generateWordsFromArray(max) {
 //***** * created component *******
 export default function Header() {
   // getWords will get the diff words from the provided array
-  const getWords = changingWords[generateWordsFromArray(2)];
+  // const getWords = changingWords[generateWordsFromArray(2)];
+  //alternative
+  const getRandomWord =
+    changingWords[Math.floor(Math.random() * changingWords.length)];
   return (
     <header>
       <img src={reactImg} alt="Stylized atom" />
       <h1>React Essentials</h1>
       <p>
         {/* outputting dynamic value */}
-        {getWords} React concepts you will need for almost any app you are going
-        to build!
+        {getRandomWord} React concepts you will need for almost any app you are
+        going to build!
       </p>
     </header>
   );
